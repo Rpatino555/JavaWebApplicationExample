@@ -12,15 +12,10 @@ import java.io.PrintWriter;
 public class MyServlet2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
-								  HttpServletResponse response) throws ServletException, IOException {
+						 HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		// send HTML page to client
-		out.println("<html>");
-		out.println("<body>");
-		out.println("<h1>Bienvenido "+ request.getParameter("fname")+"</h1>");
-		out.println("</body></html>");
+	request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+
 	}
 
 }
